@@ -1,0 +1,13 @@
+{
+    "name": "avtoshop",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently \"npm run start --prefix client\" \"npm run dev --prefix server\"",
+        "client": "cd client && npm start",
+        "server": "cd server && npm start"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}

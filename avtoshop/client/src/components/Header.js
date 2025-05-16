@@ -23,7 +23,7 @@ export default function Header(props) {
         <div>
             <span class="logo">Car parts</span>
             <ul className='nav'>
-              <li>Контакты</li>
+              <li><a href="https://t.me/randomazerer">Контакты</a></li>
               <li>Кабинет</li>
             </ul>
             <FaShoppingCart onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`cart-button ${cartOpen && 'active'}`}/>

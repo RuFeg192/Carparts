@@ -2,12 +2,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import React from "react"
 import Items from "./components/Items";
+import Categories from "./components/Categories"
+import FullItem from "./components/FullItem"
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       orders: [],
+      chosItems:[],
       items: [
         {
           id: 1,
@@ -65,19 +68,44 @@ class App extends React.Component {
           category: 'suspension',
           price: '65'
         },
-      ]
+      ],
+      fullItem: false,
+      showItem: {}
     }
+    this.state.chosItems = this.state.items
     this.addToOrder = this.addToOrder.bind(this)
     this.deleteOrder = this.deleteOrder.bind(this)
+    this.chooseCategory = this.chooseCategory.bind(this)
+    this.onFullItem = this.onFullItem.bind(this)
   }
   render(){
     return (
     <div class="wrapper">
       <Header orders={this.state.orders} onDelete={this.deleteOrder} />
-      <Items items={this.state.items} onAdd={this.addToOrder} />
+      <Categories chooseCategory={this.chooseCategory}/>
+      <Items items={this.state.chosItems} onAdd={this.addToOrder} onFullItem={this.onFullItem} />
+      {this.state.fullItem && <FullItem onAdd={this.addToOrder} onFullItem={this.onFullItem} item={this.state.showItem} />}
       <Footer/>
     </div>
     )
+  }
+
+
+  onFullItem(item) {
+    this.setState({showItem: item})
+    this.setState({fullItem: !this.state.fullItem})
+  }
+
+
+  chooseCategory(category) {
+    if(category === 'all'){
+      this.setState({chosItems: this.state.items})
+      return
+    }
+
+    this.setState({
+      chosItems: this.state.items.filter(el => el.category === category)
+    })
   }
 
 
