@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import './items.css';
 
 const Items = ({ items, onAdd }) => {
   return (
@@ -7,14 +8,12 @@ const Items = ({ items, onAdd }) => {
       {items.map(item => (
         <div key={item.id} className="item">
           <img src={"./img/" + item.img} alt={item.title} />
-          <h3>{item.title}</h3>
-          <p>{item.desc}</p>
-          <b>{item.price}$</b>
+          <h3 className="item-title">{item.title}</h3>
+          <p className="item-desc">{item.desc}</p>
+          <b className="item-price">{item.price}$</b>
           <div className="add-to-cart" onClick={() => onAdd(item)}>
             Добавить в корзину
           </div>
-       
-          <Link to={`/product/${item.id}`}>Подробнее</Link>
         </div>
       ))}
     </div>

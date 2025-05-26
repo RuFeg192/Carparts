@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { ShowOrders } from './ShowOrders'; 
-import { ShowNothing } from './ShowNothing'; 
+import { ShowOrders } from '../ShowOrders'; 
+import { ShowNothing } from '../ShowNothing'; 
 
 export default function Header(props) {
   let [cartOpen, setCartOpen] = useState(false);

@@ -1,9 +1,10 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
-import React from "react"
-import Items from "./components/Items";
-import Categories from "./components/Categories"
-import FullItem from "./components/FullItem"
+import React from "react";
+import Items from "./components/Items/Items";
+import Categories from "./components/Categories/Categories";
+import FullItem from "./components/FullItem/FullItem";
+import './index.css';
 
 class App extends React.Component {
   constructor(props) {
